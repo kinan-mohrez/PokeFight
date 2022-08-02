@@ -1,10 +1,24 @@
 import React from "react";
+import {data} from "../src/data"
 
-function Test() {
+
+const pokeData = ({ id, name, type, base }) => {
+  if (!id) return <div />;
   return (
-    <div>
-      <h2>Test</h2>
-    </div>
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            <h5>{name}</h5>
+          </td>
+          <td>
+            <h5>{type}</h5>
+          </td>
+          <td>
+            <h4>{base}</h4>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   );
-}
-export default Test;
+};
