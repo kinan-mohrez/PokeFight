@@ -89,3 +89,7 @@ hr {
 .partyPic {
   border-radius: 10%;
 }
+
+#pokeball {
+  height: 50px;
+}

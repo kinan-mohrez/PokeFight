@@ -15,8 +15,8 @@ function Header() {
         <NavLink className="myActive" to="/">
           home
         </NavLink>
-        <NavLink className="myActive" to="/test">
-          test
+        <NavLink className="myActive" to="/pokeFight">
+          PokeFight
         </NavLink>
         <NavLink to="/about" className="myActive">
           about

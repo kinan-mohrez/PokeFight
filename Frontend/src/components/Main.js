@@ -2,15 +2,16 @@ import React from "react";
 import "./components.css";
 import { Routes, Route, useParams } from "react-router-dom";
 import About from "../components/About";
-import Test from "../components/Test";
+import PokeFight from "./PokeFight";
 import Home from "../components/Home";
+import NotFound from "./NotFound";
 import PokeDetails from "../components/PokeDetails";
 import { useEffect, useState } from "react";
+import BaseInfo from "./BaseInfo";
 
 function Main() {
   const [pokemons, setPokemons] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
- 
 
   const fetchData = () => {
     fetch("./data/pokedex.json")
@@ -37,11 +38,16 @@ function Main() {
             element={<Home pokemons={pokemons} isLoading={isLoading} />}
           />
           <Route path="/about" element={<About />} />
-          <Route path="/test" element={<Test />} />
+          <Route path="/pokeFight" element={<PokeFight />} />
           <Route
             path="/:pokeId"
             element={<PokeDetails pokemons={pokemons} isLoading={isLoading} />}
           />
+          <Route
+            path="/:pokeId/:pokeInfo"
+            element={<BaseInfo pokemons={pokemons} isLoading={isLoading} />}
+          />
+          <Route path="*" element={<NotFound />}></Route>
         </Routes>
       </div>
     </div>
