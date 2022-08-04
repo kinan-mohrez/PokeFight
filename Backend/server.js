@@ -1,18 +1,24 @@
 const express = require('express');
-const app = express();
-const port = 3000;
+const server = express();
+const port = 3001;
 const jsonData = require('./file.json');
-var cors = require('cors');
+const cors = require('cors');
 
-app.use(cors());
+server.use(cors());
+var corsOptions = {
+	origin: '*',
+	methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+	preflightContinue: false,
+	optionsSuccessStatus: 204,
+};
 
 const pokemonRouter = require('./routes/pokemons');
-app.use('/pokemons', pokemonRouter);
+server.use('/pokemons', cors(corsOptions), pokemonRouter);
 
-app.get('/', (req, res) => {
+server.get('/', cors(corsOptions), (req, res) => {
 	res.send('Hello World!');
 });
 
-app.listen(port, () => {
+server.listen(port, () => {
 	console.log(`Example app listening on port ${port}`);
 });
