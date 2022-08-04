@@ -4,7 +4,7 @@ import "./components.css";
 function Footer() {
   return (
     <div className="footer">
-      <p></p>
+      <hr />
       <p>Gruppe 1 : Abdülazis - Kinan - Romano - Sarah</p>
     </div>
   );

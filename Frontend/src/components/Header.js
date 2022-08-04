@@ -22,6 +22,7 @@ function Header() {
           about
         </NavLink>
       </nav>
+      <hr />
     </div>
   );
 }

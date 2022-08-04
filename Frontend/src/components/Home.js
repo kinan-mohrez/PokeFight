@@ -36,6 +36,7 @@ const Home = ({ pokemons, isLoading }) => {
         />
         french
       </div>
+      <hr />
       {isLoading && <p>Loading ...</p>}
       {pokemons.length > 0 && (
         <ul className="poke-list">

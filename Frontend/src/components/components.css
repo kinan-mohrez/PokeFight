@@ -78,3 +78,14 @@ h1 {
 .pokemonDetails {
   list-style: none;
 }
+
+hr {
+  width: 95%;
+  height: 1px;
+  background: yellow;
+  box-shadow: blue 0.1em 0.1em 0.2em;
+}
+
+.partyPic {
+  border-radius: 10%;
+}

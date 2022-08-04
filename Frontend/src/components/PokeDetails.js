@@ -1,18 +1,20 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 
-function PokeDetails({ pokemons, isLoading }) {
-  const id = 4 - 1;
-  console.log(pokemons[id]);
-
-  const onePokemon = pokemons[id];
+function PokeDetails({ pokemons, isLoading }, props) {
+  const { pokeId } = useParams();
   //console.log(pokemons);
+  //console.log("pokeId " + pokeId);
+
+  const onePokemon = pokemons[pokeId];
+  //console.log(onePokemon);
 
   return (
     <div>
       {isLoading && <p>Loading ...</p>}
       {pokemons.length > 0 && (
         <ul className="pokemonDetails">
-          <li>Pokedex Nr. {id + 1}</li>
+          <li>Pokedex Nr. {pokeId}</li>
           <li>Name: {onePokemon.name["english"]} </li>
           <li>...</li>
           <li>HP: {onePokemon.base["HP"]} </li>

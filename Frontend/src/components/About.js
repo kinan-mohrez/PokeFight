@@ -9,7 +9,7 @@ function About() {
       <p>React router</p>
       <p>MongoDB</p>
       <p> und viele Pokémons</p>
-      <img src={pokemonparty} alt="party with pokémons" />
+      <img src={pokemonparty} alt="party with pokémons" className="partyPic"/>
     </div>
   );
 }
