@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node /Backend/server.js"
+    "start": "node Backend/server.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/kinan-mohrez/PokeFight/issues"
   },
-  "homepage": "https://github.com/kinan-mohrez/PokeFight#readme"
+  "homepage": "https://github.com/kinan-mohrez/PokeFight#readme",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "nodemon": "^2.0.19"
+  }
 }
