@@ -25,15 +25,15 @@ router.get('/:id/:info', (req, res) => {
 	const { info } = req.params;
 	if (info === 'name') {
 		const foundPokemon = jsonData.find((pokemon) => pokemon.id == id);
-		res.json(foundPokemon.name);
+		res.send(foundPokemon.name);
 	}
 	if (info === 'type') {
 		const foundPokemon = jsonData.find((pokemon) => pokemon.id == id);
-		res.json(foundPokemon.type);
+		res.send(foundPokemon.type);
 	}
 	if (info === 'base') {
 		const foundPokemon = jsonData.find((pokemon) => pokemon.id == id);
-		res.json(foundPokemon.base);
+		res.send(foundPokemon.base);
 	}
 });
 
