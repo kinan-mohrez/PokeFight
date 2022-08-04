@@ -1,23 +1,22 @@
 const jsonData = require('../file.json');
 const express = require('express');
 const router = express.Router();
-var cors = require('cors');
+const cors = require('cors');
+router.use(express.json());
 
-app.use(cors());
-
-let pokemonsData = [];
-pokemonsData = jsonData;
+router.use(cors());
 
 //complete list of pokemon
 router.get('/', (req, res) => {
-	res.json(jsonData);
+	res.send(jsonData);
 });
 
-//gives only one pokemon
+//gives only one pokemon by id
 router.get('/:id', (req, res) => {
 	const { id } = req.params;
-	const foundPokemon = pokemonsData.find((pokemon) => pokemon.id === id);
-	console.log(foundPokemon);
+
+	const foundPokemon = jsonData.find((pokemon) => pokemon.id == id);
+	res.send(foundPokemon);
 });
 
 //gives only one pokemon from the JSON thanks to its id and retrieve only one information (name or type or base)
@@ -25,13 +24,16 @@ router.get('/:id/:info', (req, res) => {
 	const { id } = req.params;
 	const { info } = req.params;
 	if (info === 'name') {
-		console.log('name');
+		const foundPokemon = jsonData.find((pokemon) => pokemon.id == id);
+		res.json(foundPokemon.name);
 	}
 	if (info === 'type') {
-		console.log('type');
+		const foundPokemon = jsonData.find((pokemon) => pokemon.id == id);
+		res.json(foundPokemon.type);
 	}
 	if (info === 'base') {
-		console.log('base');
+		const foundPokemon = jsonData.find((pokemon) => pokemon.id == id);
+		res.json(foundPokemon.base);
 	}
 });
 
