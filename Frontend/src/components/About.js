@@ -8,8 +8,8 @@ function About() {
       <p>Node.js/Express Server</p>
       <p>React router</p>
       <p>MongoDB</p>
-      <p> und viele Pokémons</p>
-      <img src={pokemonparty} alt="party with pokémons" className="partyPic"/>
+      <p> und viele viele Pokémons</p>
+      <img src={pokemonparty} alt="party with pokémons" className="partyPic" />
     </div>
   );
 }
