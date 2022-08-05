@@ -17,15 +17,49 @@ function BaseInfo({ pokemons, isLoading }, props) {
     console.error("error");
   }
 
+  function Info() {
+    return <h2>Infos</h2>;
+  }
+
   return (
     <div>
       {isLoading && <p>Loading ...</p>}
       {pokemons.length > 0 && (
         <ul className="pokemonDetails">
-          {information}
-          {info === "type" ? `${info} : ${onePokemon[info]}` : " "}
-          {info === "base" ? ` ${JSON.stringify(onePokemon.base)}` : " "}
-          {info === "name" ? ` ${JSON.stringify(onePokemon.name)}` : " "}
+          {info === "type" ? (
+            <>
+              <li>Type of Pokemon Nr. {id}</li>
+              <li>...</li>
+              <li>
+                {onePokemon.type[0]}{" "}
+                {onePokemon.type[1] ? `, ${onePokemon.type[1]}` : ``}
+              </li>
+            </>
+          ) : info === "base" ? (
+            <p>
+              <li>Base of Pokemon Nr. {id}</li>
+              <li>...</li>
+              <li>HP: {onePokemon[information]["HP"]}</li>
+              <li>Attack: {onePokemon[information]["Attack"]}</li>
+              <li>Defense: {onePokemon[information]["Defense"]}</li>
+              <li>Sp. Attack: {onePokemon[information]["Sp. Attack"]}</li>
+              <li>Sp.Defence: {onePokemon[information]["Sp. Defence"]}</li>
+              <li>Speed: {onePokemon[information]["Speed"]}</li>
+            </p>
+          ) : info === "name" ? (
+            <>
+              <li>Names of Pokemon Nr. {id}</li>
+              <li>...</li>
+              <li>{onePokemon[information]["english"]}</li>
+              <li>{onePokemon[information]["japanese"]}</li>
+              <li>{onePokemon[information]["chinese"]}</li>
+              <li>{onePokemon[information]["french"]}</li>
+            </>
+          ) : (
+            <p>
+              <a>desc</a>
+            </p>
+          )}
         </ul>
       )}
     </div>
