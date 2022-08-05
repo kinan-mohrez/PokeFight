@@ -14,7 +14,7 @@ function Main() {
   const [isLoading, setIsLoading] = useState(false);
 
   const fetchData = () => {
-    fetch("/data/pokedex.json")
+    fetch("https://pokemon-fight-newproject.herokuapp.com/pokemons")
       .then((response) => {
         return response.json();
       })
