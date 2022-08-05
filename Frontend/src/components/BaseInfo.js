@@ -6,19 +6,26 @@ function BaseInfo({ pokemons, isLoading }, props) {
 
   const onePokemon = pokemons[id];
   //console.log(id);
+  let information = "";
+  if (info === "type") {
+    information = "type";
+  } else if (info === "name") {
+    information = "name";
+  } else if (info === "base") {
+    information = "base";
+  } else {
+    console.error("error");
+  }
 
   return (
     <div>
       {isLoading && <p>Loading ...</p>}
       {pokemons.length > 0 && (
         <ul className="pokemonDetails">
+          {information}
           {info === "type" ? `${info} : ${onePokemon[info]}` : " "}
-          {info === "base"
-            ? ` ${JSON.stringify(onePokemon.base, null, " ")}`
-            : "test "}
-          {info === "name"
-            ? ` ${JSON.stringify(onePokemon.name, null, " ")}`
-            : "test "}
+          {info === "base" ? ` ${JSON.stringify(onePokemon.base)}` : " "}
+          {info === "name" ? ` ${JSON.stringify(onePokemon.name)}` : " "}
         </ul>
       )}
     </div>
