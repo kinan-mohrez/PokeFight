@@ -43,7 +43,7 @@ function BaseInfo({ pokemons, isLoading }, props) {
               <li>Attack: {onePokemon[information]["Attack"]}</li>
               <li>Defense: {onePokemon[information]["Defense"]}</li>
               <li>Sp. Attack: {onePokemon[information]["Sp. Attack"]}</li>
-              <li>Sp.Defence: {onePokemon[information]["Sp. Defence"]}</li>
+              <li>Sp. Defence: {onePokemon[information]["Sp. Defense"]}</li>
               <li>Speed: {onePokemon[information]["Speed"]}</li>
             </p>
           ) : info === "name" ? (
