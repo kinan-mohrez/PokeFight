@@ -75,7 +75,9 @@ h1 {
   font-size: 1.5rem;
 }
 
-.pokemonDetails {
+.pokemonDetails,
+.pokemonDetailsRight,
+.pokemonDetailsLeft {
   list-style: none;
 }
 
@@ -92,4 +94,11 @@ hr {
 
 #pokeball {
   height: 50px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
 }

@@ -38,7 +38,10 @@ function Main() {
             element={<Home pokemons={pokemons} isLoading={isLoading} />}
           />
           <Route path="/about" element={<About />} />
-          <Route path="/pokeFight" element={<PokeFight />} />
+          <Route
+            path="/pokeFight"
+            element={<PokeFight pokemons={pokemons} isLoading={isLoading} />}
+          />
           <Route
             path="/:id"
             element={<PokeDetails pokemons={pokemons} isLoading={isLoading} />}
