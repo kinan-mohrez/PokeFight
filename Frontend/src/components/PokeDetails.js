@@ -17,11 +17,12 @@ function PokeDetails({ pokemons, isLoading }, props) {
           <li>Pokedex Nr. {id}</li>
           <li>Name: {onePokemon.name["english"]} </li>
           <li>...</li>
-          <li>HP: {onePokemon.base["HP"]} </li>
+
           <li>
             Type: {onePokemon.type[0]}{" "}
             {onePokemon.type[1] ? `, ${onePokemon.type[1]}` : ``}
           </li>
+          <li>HP: {onePokemon.base["HP"]} </li>
           <li>Attack: {onePokemon.base["Attack"]}</li>
           <li>Defense: {onePokemon.base["Defense"]}</li>
           <li>Speed: {onePokemon.base["Speed"]}</li>
