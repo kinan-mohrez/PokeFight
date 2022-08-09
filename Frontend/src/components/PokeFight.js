@@ -8,6 +8,7 @@ function Test({ pokemons, isLoading }, props) {
 
   const [showResults, setShowResults] = useState(false);
   const [calcResults, setCalcResults] = useState(false);
+  let [showWinner, setShowWinner] = useState("");
 
   const leftName = pokemons[idLeft].name["english"];
   const leftId = pokemons["id"];
@@ -78,10 +79,11 @@ function Test({ pokemons, isLoading }, props) {
 
     if (pointsPokemonLeft > pointsPokemonRight) {
       console.log(`Pokemon on the left wins`);
+      setShowWinner("left");
     } else if (pointsPokemonLeft < pointsPokemonRight) {
-      console.log(`Pokemon on the right wins`);
+      setShowWinner("right");
     } else {
-      console.log(`There is no winner`);
+      setShowWinner("");
     }
   }
 
@@ -134,51 +136,13 @@ function Test({ pokemons, isLoading }, props) {
           </Button>{" "}
           {showResults && (
             <>
-              <ul className="pokemonDetailsRight">
-                <li>...</li>
-                <li>...</li>
-                <li>...</li>
+              <ul className="pokemonDetailsMiddle">
                 <li>
-                  {leftHP > rightHP
-                    ? `1 : 0`
-                    : leftHP < rightHP
-                    ? `0 : 1`
-                    : `unentschieden`}
-                </li>
-                <li>
-                  {leftAttack > rightAttack
-                    ? `1 : 0`
-                    : leftAttack < rightAttack
-                    ? `0 : 1`
-                    : `unentschieden`}
-                </li>
-                <li>
-                  {leftDefense > rightDefense
-                    ? `1 : 0`
-                    : leftDefense < rightDefense
-                    ? `0 : 1`
-                    : `unentschieden`}
-                </li>
-                <li>
-                  {leftSpAttack > rightSpAttack
-                    ? `1 : 0`
-                    : leftSpAttack < rightSpAttack
-                    ? `0 : 1`
-                    : `unentschieden`}
-                </li>
-                <li>
-                  {leftSpDefense > rightSpDefense
-                    ? `1 : 0`
-                    : leftSpDefense < rightSpDefense
-                    ? `0 : 1`
-                    : `unentschieden`}
-                </li>
-                <li>
-                  {leftSpeed > rightSpeed
-                    ? `1 : 0`
-                    : leftSpeed < rightSpeed
-                    ? `0 : 1`
-                    : `unentschieden`}
+                  {showWinner === "left"
+                    ? "Pokemon on the left wins"
+                    : showWinner === "right"
+                    ? "Pokemon on the right wins"
+                    : "There is no winner."}
                 </li>
               </ul>
             </>

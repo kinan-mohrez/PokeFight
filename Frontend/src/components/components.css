@@ -103,3 +103,6 @@ hr {
   align-items: center;
 }
 
+.pokemonDetailsMiddle {
+  list-style: none;
+}
