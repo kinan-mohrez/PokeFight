@@ -38,7 +38,33 @@ a.active.myActive {
 }
 .poke-list {
   column-count: 3;
-  list-style: decimal;
+  list-style: none;
+}
+.poke-list li {
+  display:  flex;
+  justify-content: flex-start;
+
+}
+.poke-list li div {
+  align-items: center;
+  
+  height: 64px;
+  vertical-align: middle;
+}
+.poke-list li img {
+  height: 64px;
+  max-width: 64px;
+  
+}
+.poke-list li div:nth-child(2) {
+  line-height: 64px;
+  
+  
+}
+.poke-list li div:nth-child(1) {
+  
+  width: 80px;
+  
 }
 
 .navbar {
