@@ -1,6 +1,5 @@
 import React from "react";
 import Button from "@mui/material/Button";
-import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 function Test({ pokemons, isLoading }, props) {
@@ -8,6 +7,7 @@ function Test({ pokemons, isLoading }, props) {
   const idRight = 100;
 
   const [showResults, setShowResults] = useState(false);
+  const [calcResults, setCalcResults] = useState(false);
 
   const leftName = pokemons[idLeft].name["english"];
   const leftId = pokemons["id"];
@@ -31,16 +31,72 @@ function Test({ pokemons, isLoading }, props) {
   const rightSpDefense = pokemons[idRight].base["Sp. Defense"];
   const rightSpeed = pokemons[idRight].base["Speed"];
 
-  const navigate = useNavigate();
-
   // starte Fight
   function handleClick(e) {
     e.preventDefault();
-    console.log("klicked");
+    setShowResults((prev) => !prev);
+    setCalcResults((prev) => !prev);
+    //console.log("klicked");
+    if (!calcResults) {
+      getResult();
+    }
+  }
+
+  function getResult() {
+    let pointsPokemonLeft = 0;
+    let pointsPokemonRight = 0;
+    if (leftHP > rightHP) {
+      pointsPokemonLeft += 1;
+    } else if (leftHP < rightHP) {
+      pointsPokemonRight += 1;
+    }
+    if (leftAttack > rightAttack) {
+      pointsPokemonLeft += 1;
+    } else if (leftAttack < rightAttack) {
+      pointsPokemonRight += 1;
+    }
+    if (leftDefense > rightDefense) {
+      pointsPokemonLeft += 1;
+    } else if (leftDefense < rightDefense) {
+      pointsPokemonRight += 1;
+    }
+    if (leftSpAttack > rightSpAttack) {
+      pointsPokemonLeft += 1;
+    } else if (leftSpAttack < rightSpAttack) {
+      pointsPokemonRight += 1;
+    }
+    if (leftSpDefense > rightSpDefense) {
+      pointsPokemonLeft += 1;
+    } else if (leftSpDefense < rightSpDefense) {
+      pointsPokemonRight += 1;
+    }
+    if (leftSpeed > rightSpeed) {
+      pointsPokemonLeft += 1;
+    } else if (leftSpeed < rightSpeed) {
+      pointsPokemonRight += 1;
+    }
+
+    if (pointsPokemonLeft > pointsPokemonRight) {
+      console.log(`Pokemon on the left wins`);
+    } else if (pointsPokemonLeft < pointsPokemonRight) {
+      console.log(`Pokemon on the right wins`);
+    } else {
+      console.log(`There is no winner`);
+    }
   }
 
   return (
     <div>
+      <div className="wrapper">
+        <div>
+          <h3>Choose your Pokemon</h3>
+          <input type="text" placeholder="put in the pokemon id"></input>
+        </div>
+        <div></div>
+        <div>
+          <h3>Choose your opponent</h3>
+        </div>
+      </div>
       <div className="wrapper">
         <div className="leftCard">
           <div>
@@ -72,7 +128,7 @@ function Test({ pokemons, isLoading }, props) {
             size="large"
             color="error"
             id="fightButton"
-            onClick={() => setShowResults((prev) => !prev)}
+            onClick={handleClick}
           >
             Start fight
           </Button>{" "}
@@ -87,42 +143,42 @@ function Test({ pokemons, isLoading }, props) {
                     ? `1 : 0`
                     : leftHP < rightHP
                     ? `0 : 1`
-                    : `1 : 1`}
+                    : `unentschieden`}
                 </li>
                 <li>
                   {leftAttack > rightAttack
                     ? `1 : 0`
-                    : leftAttack > rightAttack
+                    : leftAttack < rightAttack
                     ? `0 : 1`
-                    : `1 : 1`}
+                    : `unentschieden`}
                 </li>
                 <li>
                   {leftDefense > rightDefense
                     ? `1 : 0`
                     : leftDefense < rightDefense
                     ? `0 : 1`
-                    : `1:1`}
+                    : `unentschieden`}
                 </li>
                 <li>
                   {leftSpAttack > rightSpAttack
                     ? `1 : 0`
-                    : leftSpAttack > rightSpAttack
+                    : leftSpAttack < rightSpAttack
                     ? `0 : 1`
-                    : `1 : 1`}
+                    : `unentschieden`}
                 </li>
                 <li>
                   {leftSpDefense > rightSpDefense
                     ? `1 : 0`
-                    : leftSpDefense > rightSpDefense
+                    : leftSpDefense < rightSpDefense
                     ? `0 : 1`
-                    : `1 : 1`}
+                    : `unentschieden`}
                 </li>
                 <li>
                   {leftSpeed > rightSpeed
                     ? `1 : 0`
-                    : leftSpeed > rightSpeed
+                    : leftSpeed < rightSpeed
                     ? `0 : 1`
-                    : `1 : 1`}
+                    : `unentschieden`}
                 </li>
               </ul>
             </>
