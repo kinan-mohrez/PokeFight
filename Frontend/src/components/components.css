@@ -38,37 +38,7 @@ a.active.myActive {
 }
 .poke-list {
   column-count: 3;
-  list-style: none;
-}
-.poke-list li {
-  display:  flex;
-  justify-content: flex-start;
-
-}
-.poke-list li div {
-  align-items: center;
-  
-  height: 64px;
-  vertical-align: middle;
-}
-.poke-list li img {
-  height: 64px;
-  max-width: 64px;
-  transition: transform 0.6s;
-}
-.poke-list li img:hover {
-  transform: scale(1.9);
-  
-}
-.poke-list li div:nth-child(2) {
-  line-height: 64px;
-  
-  
-}
-.poke-list li div:nth-child(1) {
-  
-  width: 80px;
-  
+  list-style: decimal;
 }
 
 .navbar {
@@ -105,7 +75,9 @@ h1 {
   font-size: 1.5rem;
 }
 
-.pokemonDetails {
+.pokemonDetails,
+.pokemonDetailsRight,
+.pokemonDetailsLeft {
   list-style: none;
 }
 
@@ -122,4 +94,11 @@ hr {
 
 #pokeball {
   height: 50px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
 }
