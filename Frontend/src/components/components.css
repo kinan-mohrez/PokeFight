@@ -54,6 +54,10 @@ a.active.myActive {
 .poke-list li img {
   height: 64px;
   max-width: 64px;
+  transition: transform 0.6s;
+}
+.poke-list li img:hover {
+  transform: scale(1.9);
   
 }
 .poke-list li div:nth-child(2) {
