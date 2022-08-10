@@ -38,6 +38,7 @@ a.active.myActive {
 }
 .poke-list {
   column-count: 3;
+  
   list-style: none;
 }
 .poke-list li {

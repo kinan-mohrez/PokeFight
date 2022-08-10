@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link, useParams, Route } from 'react-router-dom';
 
 export default function Pokemonimages({ pokemonId, pokemonName, language }) {
 	const [tinyImages, setTinyImages] = useState([]);
@@ -21,10 +22,12 @@ export default function Pokemonimages({ pokemonId, pokemonName, language }) {
 		<div>
 			<li key={pokemonId}>
 				<div>
-					<img
-						src={tinyImages.sprites?.front_default}
-						alt={pokemonName[`${language}`]}
-					/>
+					<Link to={`/${pokemonId}/base`}>
+						<img
+							src={tinyImages.sprites?.front_default}
+							alt={pokemonName[`${language}`]}
+						/>
+					</Link>
 				</div>
 				<div>{pokemonName[`${language}`]}</div>
 			</li>
